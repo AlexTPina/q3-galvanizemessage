@@ -32,7 +32,7 @@ exports.updateOneMessage = function (req, res) {
 exports.removeOneMessage = function (req, res) {
     knex('messages')
         .del()
-        .where('id, req.params.id')
+        .where('id', req.params.id)
         .returning('*')
         .then(newMessage => res.json(newMessage))
 }
